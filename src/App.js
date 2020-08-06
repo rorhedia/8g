@@ -9,27 +9,15 @@ import { Container, Row } from "reactstrap";
 import Greet from "./components/FunctionGreet";
 import ClassGreet from "./components/ClassGreet";
 import Post from "./components/Post";
+import Clock from "./components/Clock";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Greet firstname="Daniel" lastname="Heredia" />
-        <ClassGreet firstname="Daniel" lastname="Heredia" />
+        <Clock />
       </header>
-      <Container className="Post-container">
+      {/* <Container className="Post-container">
         <Row sm="4">
           <Post
             title="Card 1"
@@ -68,7 +56,7 @@ function App() {
             urlImg="https://picsum.photos/id/235/100/100"
           />
         </Row>
-      </Container>
+      </Container> */}
     </div>
   );
 }
