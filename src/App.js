@@ -5,19 +5,21 @@ import "./App.css";
 import { Container } from "reactstrap";
 
 // Components
-// import SwitchExample from "./components/SwitchExample";
-// import List from "./components/List";
-import PostContainer from "./components/PostsContainer";
+import SwitchExample from "./components/SwitchExample";
+import List from "./components/List";
+// import PostContainer from "./components/PostsContainer";
 
 function App() {
   return (
     // <div className="App">
     //   <SwitchExample />
-    //   <List />
     // </div>
-    <Container className="Post-container">
-      <PostContainer />
-    </Container>
+    <div className="App">
+      <List />
+    </div>
+    // <Container className="Post-container">
+    //   <PostContainer />
+    // </Container>
   );
 }
 
