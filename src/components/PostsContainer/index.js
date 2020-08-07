@@ -12,37 +12,37 @@ const postsList = [
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
   },
   {
-    urlImg: "https://picsum.photos/id/230/100/100",
+    urlImg: "https://picsum.photos/id/231/100/100",
     title: "Card 2",
     text:
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
   },
   {
-    urlImg: "https://picsum.photos/id/230/100/100",
+    urlImg: "https://picsum.photos/id/232/100/100",
     title: "Card 3",
     text:
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
   },
   {
-    urlImg: "https://picsum.photos/id/230/100/100",
+    urlImg: "https://picsum.photos/id/233/100/100",
     title: "Card 4",
     text:
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
   },
   {
-    urlImg: "https://picsum.photos/id/230/100/100",
+    urlImg: "https://picsum.photos/id/234/100/100",
     title: "Card 5",
     text:
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
   },
   {
-    urlImg: "https://picsum.photos/id/230/100/100",
+    urlImg: "https://picsum.photos/id/235/100/100",
     title: "Card 6",
     text:
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
   },
   {
-    urlImg: "https://picsum.photos/id/230/100/100",
+    urlImg: "https://picsum.photos/id/236/100/100",
     title: "Card 7",
     text:
       "This is a wider card with supporting text below as a natural lead-into additional content. This content is a little bit longer.",
