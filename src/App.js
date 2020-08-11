@@ -1,25 +1,17 @@
 import React from "react";
 import "./App.css";
 
-// Reactstrap
-import { Container } from "reactstrap";
+// material UI
+// import { Button } from "@material-ui/core";
 
 // Components
-import SwitchExample from "./components/SwitchExample";
-import List from "./components/List";
-// import PostContainer from "./components/PostsContainer";
+import NotesBlog from "./screens/NotesBlog";
 
 function App() {
   return (
-    // <div className="App">
-    //   <SwitchExample />
-    // </div>
     <div className="App">
-      <List />
+      <NotesBlog />
     </div>
-    // <Container className="Post-container">
-    //   <PostContainer />
-    // </Container>
   );
 }
 
