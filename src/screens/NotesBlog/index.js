@@ -6,17 +6,15 @@ import {
   List,
   ListItem,
   ListItemText,
-  TextField,
   Button,
+  Grid,
 } from "@material-ui/core";
 
 // CSS
 import "./NotesBlog.css";
 
-// const notes = [
-//   { title: "My first note", content: "This is an amazing note!" },
-//   { title: "My first note", content: "This is an amazing note!" },
-// ];
+// Components
+import CustomTextField from "../../components/customTextField";
 
 class NotesBlog extends Component {
   constructor(props) {
@@ -30,7 +28,7 @@ class NotesBlog extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleChangeInput({ target: { name, value } }) {
+  handleChangeInput(name, value) {
     this.setState({
       [name]: value,
     });
@@ -42,8 +40,7 @@ class NotesBlog extends Component {
     const { notes, noteTitle, noteContent } = this.state;
     const newNote = [...notes, { title: noteTitle, content: noteContent }];
     const stringNewNotes = JSON.stringify(newNote);
-
-    localStorage.setItem("notes", JSON.stringify(stringNewNotes));
+    localStorage.setItem("notes", stringNewNotes);
 
     this.setState({
       notes: newNote,
@@ -72,36 +69,44 @@ class NotesBlog extends Component {
     ));
 
     return (
-      <React.Fragment>
+      <>
         <Container maxWidth="md">
           <List dense={false}>{UINotes}</List>
         </Container>
         <Container maxWidth="md">
-          <form onSubmit={this.handleFormSubmit}>
-            <TextField
-              color="secondary"
-              className="input"
-              label="Titulo"
-              variant="outlined"
-              value={noteTitle}
-              name="noteTitle"
-              onChange={this.handleChangeInput}
-            />
-            <TextField
-              color="secondary"
-              className="input"
-              label="content"
-              variant="outlined"
-              value={noteContent}
-              name="noteContent"
-              onChange={this.handleChangeInput}
-            />
-            <Button type="submit" variant="contained" color="primary">
-              Guardar
-            </Button>
-          </form>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <form onSubmit={this.handleFormSubmit}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+              >
+                <CustomTextField
+                  value={noteTitle}
+                  name="noteTitle"
+                  label="Note"
+                  callback={this.handleChangeInput}
+                />
+                <CustomTextField
+                  value={noteContent}
+                  name="noteContent"
+                  label="Content"
+                  callback={this.handleChangeInput}
+                />
+                <Button type="submit" variant="contained" color="primary">
+                  Guardar
+                </Button>
+              </Grid>
+            </form>
+          </Grid>
         </Container>
-      </React.Fragment>
+      </>
     );
   }
 }
