@@ -9,21 +9,22 @@ import "./Navbar.css";
 class Navbar extends Component {
   render() {
     return (
-      <>
-        <nav className="navbar">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/notesBlog">Blog de notas</Link>
-            </li>
-            <li>
-              <Link to="/currencyConverter">Conversor de divisas</Link>
-            </li>
-          </ul>
-        </nav>
-      </>
+      <nav className="navbar">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/notesBlog">Blog de notas</Link>
+          </li>
+          <li>
+            <Link to="/currencyConverter">Conversor de divisas</Link>
+          </li>
+          <li>
+            <Link to="/users">Usuarios</Link>
+          </li>
+        </ul>
+      </nav>
     );
   }
 }

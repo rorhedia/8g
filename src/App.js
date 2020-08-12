@@ -7,9 +7,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // material UI
 // import { Button } from "@material-ui/core";
 
-// Components
+// screens
 import NotesBlog from "./screens/NotesBlog";
 import CurrencyConverter from "./screens/CurrencyConverter";
+import Users from "./screens/Users";
+
+// Components
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -28,6 +31,10 @@ function App() {
 
           <Route path="/currencyConverter">
             <CurrencyConverter />
+          </Route>
+
+          <Route path="/users">
+            <Users />
           </Route>
         </Switch>
       </div>

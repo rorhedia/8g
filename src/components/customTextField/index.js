@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import TextField from "@material-ui/core/TextField";
 
+import "./customTextField.css";
+
 class CustomTextField extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class CustomTextField extends Component {
     return (
       <TextField
         className="input"
-        color="secondary"
+        color=""
         variant="outlined"
         label={label}
         value={value}

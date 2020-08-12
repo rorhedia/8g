@@ -88,12 +88,14 @@ class NotesBlog extends Component {
                 alignItems="center"
               >
                 <CustomTextField
+                  className="input"
                   value={noteTitle}
                   name="noteTitle"
                   label="Note"
                   callback={this.handleChangeInput}
                 />
                 <CustomTextField
+                  className="input"
                   value={noteContent}
                   name="noteContent"
                   label="Content"
