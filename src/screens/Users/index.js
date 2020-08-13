@@ -9,22 +9,35 @@ class Users extends Component {
   }
 
   componentDidMount() {
-    fetch("https://reactsessions-ac545.firebaseio.com/.json")
+    fetch("https://reactsessions-ac545.firebaseio.com/users.json")
       .then((res) => res.json())
-      .then((users) =>
-        this.setState({
-          users,
-        })
-      );
+      .then((users) => {
+        let usersArr = [];
+        for (const key in users) {
+          if (users.hasOwnProperty(key)) {
+            users[key]["key"] = key;
+            usersArr.push(users[key]);
+          }
+        }
+
+        if (users) {
+          this.setState({
+            users: usersArr,
+          });
+        }
+      });
   }
 
   render() {
     const { users } = this.state;
-    const UIUsers = users.map(({ firstName, lastName }, idx) => (
-      <li key={idx}>
-        {firstName} {lastName}
-      </li>
-    ));
+
+    const UIUsers = users.map(({ firstName, lastName, age, key }, idx) => {
+      return (
+        <li key={key}>
+          {firstName} {lastName} tiene {age} añitos
+        </li>
+      );
+    });
 
     return (
       <div className="Container">
@@ -36,3 +49,27 @@ class Users extends Component {
 }
 
 export default Users;
+
+// var user = {
+//   firstName: "Daniel",
+//   lastName: "Heredia",
+//   age: 29,
+// };
+
+// fetch("https://reactsessions-ac545.firebaseio.com/users.json", {
+//   method: "POST",
+//   body: JSON.stringify(user),
+// })
+//   .then((res) => res.json())
+//   .then((users) => console.log(users));
+
+//   var user = {
+//     hobbies:['Jugar','Viajar','Dormir']
+//   };
+
+//   fetch("https://reactsessions-ac545.firebaseio.com/users/-ME_S1AhlNq5CXUyXVTx.json", {
+//     method: "PATCH",
+//     body: JSON.stringify(user),
+//   })
+//     .then((res) => res.json())
+//     .then((users) => console.log(users));
