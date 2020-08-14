@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-// CSS
-import "./Input.css";
+// Ant Design
+import { Form, Input } from "antd";
+import { FormOutlined } from "@ant-design/icons";
 
-class Input extends Component {
+class CustomInput extends Component {
   constructor(props) {
     super(props);
     this.handlerInput = this.handlerInput.bind(this);
@@ -14,16 +15,25 @@ class Input extends Component {
   }
 
   render() {
-    const { type, name, value } = this.props;
+    const { type, name, value, placeholder, error } = this.props;
     return (
-      <input
-        type={type ? type : "text"}
+      <Form.Item
+        className="form-item"
         name={name}
-        value={value}
-        onChange={this.handlerInput}
-      />
+        rules={[{ required: true, message: error }]}
+      >
+        <Input
+          style={{ width: 300 }}
+          prefix={<FormOutlined />}
+          placeholder={placeholder}
+          type={type ? type : "text"}
+          name={name}
+          value={value}
+          onChange={this.handlerInput}
+        />
+      </Form.Item>
     );
   }
 }
 
-export default Input;
+export default CustomInput;

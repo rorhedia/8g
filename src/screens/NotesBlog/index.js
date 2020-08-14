@@ -1,51 +1,28 @@
 import React, { Component } from "react";
 
-// Materia UI
-import {
-  Container,
-  List,
-  ListItem,
-  ListItemText,
-  Button,
-  Grid,
-} from "@material-ui/core";
-
-// CSS
-import "./NotesBlog.css";
+// Ant Design
+import { List, Row, Col } from "antd";
 
 // Components
-import CustomTextField from "../../components/customTextField";
+import CustomForm from "./components/CustomForm";
 
 class NotesBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
       notes: [],
-      noteTitle: "",
-      noteContent: "",
     };
-    this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleChangeInput(name, value) {
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  handleFormSubmit(e) {
-    e.preventDefault();
-
-    const { notes, noteTitle, noteContent } = this.state;
+  handleFormSubmit(noteTitle, noteContent) {
+    const { notes } = this.state;
     const newNote = [...notes, { title: noteTitle, content: noteContent }];
     const stringNewNotes = JSON.stringify(newNote);
     localStorage.setItem("notes", stringNewNotes);
 
     this.setState({
       notes: newNote,
-      noteTitle: "",
-      noteContent: "",
     });
   }
 
@@ -60,55 +37,27 @@ class NotesBlog extends Component {
   }
 
   render() {
-    const { notes, noteTitle, noteContent } = this.state;
+    const { notes } = this.state;
 
-    const UINotes = notes.map(({ title, content }, idx) => (
-      <ListItem key={idx} className="List-item">
-        <ListItemText primary={title} secondary={content} />
-      </ListItem>
-    ));
+    let UINotes = <h1>No hay nada que mostrar</h1>;
+
+    if (notes.length) {
+      UINotes = notes.map(({ title, content }, idx) => (
+        <List.Item key={idx} className="List-item">
+          <List.Item.Meta title={title} description={content} />
+        </List.Item>
+      ));
+    }
 
     return (
-      <>
-        <Container maxWidth="md">
-          <List dense={false}>{UINotes}</List>
-        </Container>
-        <Container maxWidth="md">
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-          >
-            <form onSubmit={this.handleFormSubmit}>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-              >
-                <CustomTextField
-                  className="input"
-                  value={noteTitle}
-                  name="noteTitle"
-                  label="Note"
-                  callback={this.handleChangeInput}
-                />
-                <CustomTextField
-                  className="input"
-                  value={noteContent}
-                  name="noteContent"
-                  label="Content"
-                  callback={this.handleChangeInput}
-                />
-                <Button type="submit" variant="contained" color="primary">
-                  Guardar
-                </Button>
-              </Grid>
-            </form>
-          </Grid>
-        </Container>
-      </>
+      <Row>
+        <Col span={8} offset={4}>
+          <CustomForm handleFormSubmit={this.handleFormSubmit} />
+        </Col>
+        <Col span={8} offset={4}>
+          <List>{UINotes}</List>
+        </Col>
+      </Row>
     );
   }
 }

@@ -1,14 +1,11 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 
-// import darkTheme from "@ant-design/dark-theme";
-// import "./App.css";
+// CSS
+import "./App.css";
 
 // Reac Router Dom
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-// material UI
-// import { Button } from "@material-ui/core";
 
 // screens
 import NotesBlog from "./screens/NotesBlog";
@@ -18,17 +15,28 @@ import Users from "./screens/Users";
 // Components
 import Navbar from "./components/Navbar";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 function App() {
+  const pathname = window.location.pathname.substr(1);
+
+  let selectedLink = "1";
+  if (pathname === "notesBlog") {
+    selectedLink = "2";
+  } else if (pathname === "currencyConverter") {
+    selectedLink = "3";
+  } else if (pathname === "users") {
+    selectedLink = "4";
+  }
+
   return (
-    <Layout className="layout">
+    <Layout>
       <Router>
         <Header>
-          <Navbar />
+          <Navbar selectedLink={selectedLink} />
         </Header>
 
-        <Content style={{ padding: "50px 0" }}>
+        <Content className="content">
           <Switch>
             <Route exact={true} path="/">
               <h1>Hola desde home</h1>

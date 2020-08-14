@@ -4,33 +4,26 @@ import React, { Component } from "react";
 import { Form, Button } from "antd";
 
 // CSS
-import "./UserForm.css";
+// import "./UserForm.css";
 
 // Components
 // import Input from "../../../../components/Input";
-import AntdInput from "../../../../components/AntdInput";
+import AntdInput from "../../../../components/Input";
 
-// const layout = {
-//   labelCol: { span: 8 },
-//   wrapperCol: { span: 16 },
-// };
-
-// const tailLayout = {
-//   wrapperCol: { offset: 8, span: 16 },
-// };
-
-class CustomForm extends Component {
+class UpdateUserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       firstName: "",
       lastName: "",
       age: "",
-      hobbies: [],
+      // hobbies: [],
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidUpdate() {}
 
   handleInputChange(name, value) {
     this.setState({
@@ -39,7 +32,6 @@ class CustomForm extends Component {
   }
 
   handleSubmit(e) {
-    console.log("asd", e);
     // e.preventDefault();
     const { firstName, lastName, age } = this.state;
     this.props.callback(firstName, lastName, age);
@@ -70,32 +62,14 @@ class CustomForm extends Component {
           placeholder="Edad"
         />
 
-        {/* <Input
-          name="firstName"
-          value={firstName}
-          callback={this.handleInputChange}
-        />
-        <Input
-          name="lastName"
-          value={lastName}
-          callback={this.handleInputChange}
-        />
-        <Input
-          type="number"
-          name="age"
-          value={age}
-          callback={this.handleInputChange}
-        /> */}
-
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Crear usuario
           </Button>
         </Form.Item>
-        {/* <button type="submit">Crear usuario</button> */}
       </Form>
     );
   }
 }
 
-export default CustomForm;
+export default UpdateUserForm;

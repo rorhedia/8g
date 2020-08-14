@@ -8,9 +8,15 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { selectedLink } = this.props;
+
     return (
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[selectedLink]}>
         <Menu.Item key="1">
           <Link to="/">Home</Link>
         </Menu.Item>
