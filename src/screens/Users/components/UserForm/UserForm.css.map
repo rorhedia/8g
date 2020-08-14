@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,IADA,CACA,KAAK,CAAC;EACF,OAAO,EAAE,KAAK;CACjB",
+    "sources": [
+        "UserForm.scss"
+    ],
+    "names": [],
+    "file": "UserForm.css"
+}

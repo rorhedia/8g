@@ -1,16 +1,16 @@
 .navbar {
-    width: 90%;
-    ul {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 15px;
+  width: 90%;
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
 
-        li {
-            list-style: none;
-            margin: 0 15px;
-            a {
-                color: whitesmoke;
-            }
-        }
+    li {
+      list-style: none;
+      margin: 0 15px;
+      a {
+        color: gray;
+      }
     }
+  }
 }
