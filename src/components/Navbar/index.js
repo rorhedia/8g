@@ -17,7 +17,7 @@ class Navbar extends Component {
 
     return (
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[selectedLink]}>
-        <Menu.Item key="1">
+        {/* <Menu.Item key="1">
           <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="2">
@@ -34,6 +34,9 @@ class Navbar extends Component {
         </Menu.Item>
         <Menu.Item key="6">
           <Link to="/currencyHooks">Hook Conversor</Link>
+        </Menu.Item> */}
+        <Menu.Item key="1">
+          <Link to="/users">Users</Link>
         </Menu.Item>
       </Menu>
     );

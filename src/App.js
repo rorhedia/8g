@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotesBlog from "./screens/NotesBlog";
 import CurrencyConverter from "./screens/CurrencyConverter";
 import Users from "./screens/Users";
+import UserList from "./screens/UserList";
+import UserDetail from "./screens/UserDetail";
 import Hooks from "./screens/Hooks";
 import HookCurrecyConverter from "./screens/HookCurrencyConverter";
 
@@ -44,7 +46,13 @@ function App() {
 
         <Content className="content">
           <Switch>
-            <Route exact={true} path="/">
+            <Route exact path="/users">
+              <UserList />
+            </Route>
+            <Route exact path="/users/:id">
+              <UserDetail />
+            </Route>
+            {/* <Route exact={true} path="/">
               <h1>Hola desde home</h1>
             </Route>
 
@@ -66,7 +74,7 @@ function App() {
 
             <Route path="/currencyHooks">
               <HookCurrecyConverter />
-            </Route>
+            </Route> */}
           </Switch>
         </Content>
       </Router>
