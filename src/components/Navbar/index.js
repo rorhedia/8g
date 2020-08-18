@@ -29,6 +29,12 @@ class Navbar extends Component {
         <Menu.Item key="4">
           <Link to="/users">Usuarios</Link>
         </Menu.Item>
+        <Menu.Item key="5">
+          <Link to="/hooks">Hooks</Link>
+        </Menu.Item>
+        <Menu.Item key="6">
+          <Link to="/currencyHooks">Hook Conversor</Link>
+        </Menu.Item>
       </Menu>
     );
   }

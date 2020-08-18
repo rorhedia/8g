@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotesBlog from "./screens/NotesBlog";
 import CurrencyConverter from "./screens/CurrencyConverter";
 import Users from "./screens/Users";
+import Hooks from "./screens/Hooks";
+import HookCurrecyConverter from "./screens/HookCurrencyConverter";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -27,6 +29,10 @@ function App() {
     selectedLink = "3";
   } else if (pathname === "users") {
     selectedLink = "4";
+  } else if (pathname === "hooks") {
+    selectedLink = "5";
+  } else if (pathname === "currencyHooks") {
+    selectedLink = "6";
   }
 
   return (
@@ -52,6 +58,14 @@ function App() {
 
             <Route path="/users">
               <Users />
+            </Route>
+
+            <Route path="/hooks">
+              <Hooks />
+            </Route>
+
+            <Route path="/currencyHooks">
+              <HookCurrecyConverter />
             </Route>
           </Switch>
         </Content>
